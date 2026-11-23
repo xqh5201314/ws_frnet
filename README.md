@@ -25,28 +25,14 @@ git lfs install
 git lfs pull
 ```
 
-原开发机在每个编译或运行终端加载已有脚本。
-
-```bash
-source /home/xqh/env/cuda12_trt10.sh
-```
-
 在其他机器上，先安装匹配的 ROS Noetic、CUDA 和 TensorRT，再按实际安装位置设置环境。
 
-```bash
-source /opt/ros/noetic/setup.bash
-export CUDA_HOME=/usr/local/cuda-12.8
-export TENSORRT_ROOT=/opt/TensorRT-10.10.0.31
-export PATH="$TENSORRT_ROOT/bin:$CUDA_HOME/bin:$PATH"
-export LD_LIBRARY_PATH="$TENSORRT_ROOT/lib:$CUDA_HOME/lib64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-```
 
 ## 编译
 
-在仓库根目录执行。`rosdep` 使用本机已初始化的 Noetic rosdep 索引安装 ROS 包依赖。`src/CMakeLists.txt` 指向 Noetic 的 catkin 顶层 CMake 文件。
+在仓库根目录执行。
 
 ```bash
-rosdep install --from-paths src --ignore-src --rosdistro noetic -r -y
 catkin_make -DCMAKE_BUILD_TYPE=Release \
   -DPYTHON_EXECUTABLE=/usr/bin/python3 \
   -DCUDA_TOOLKIT_ROOT_DIR="$CUDA_HOME" \
