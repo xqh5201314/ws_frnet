@@ -1,0 +1,90 @@
+# Classic Autoware FRNet projection and 17-class palette. Profiles cover this scene.
+trt_precision: fp16
+class_names:
+- barrier
+- bicycle
+- bus
+- car
+- construction_vehicle
+- motorcycle
+- pedestrian
+- traffic_cone
+- trailer
+- truck
+- driveable_surface
+- other_flat
+- sidewalk
+- terrain
+- manmade
+- vegetation
+- unknown
+palette:
+- 255
+- 120
+- 50
+- 255
+- 192
+- 203
+- 255
+- 255
+- 0
+- 0
+- 150
+- 245
+- 0
+- 255
+- 255
+- 255
+- 127
+- 0
+- 255
+- 0
+- 0
+- 255
+- 240
+- 150
+- 135
+- 60
+- 0
+- 160
+- 32
+- 240
+- 255
+- 0
+- 255
+- 139
+- 137
+- 137
+- 75
+- 0
+- 75
+- 150
+- 240
+- 80
+- 230
+- 230
+- 250
+- 0
+- 175
+- 0
+- 0
+- 0
+- 0
+fov_up_deg: 10.0
+fov_down_deg: -30.0
+frustum_width: 480
+frustum_height: 32
+interpolation_width: 1920
+interpolation_height: 32
+interpolation_stride: 1
+num_points:
+- 5000
+- 45000
+- 120000
+num_unique_coors:
+- 1000
+- 8000
+- 15360
+filter:
+  classes: []
+  output_format: ''

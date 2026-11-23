@@ -1,0 +1,2 @@
+autoware_lidar/sample-rosbag.zip filter=lfs diff=lfs merge=lfs -text
+nuscenes_scene_0916/nuscenes_scene_0916.bag filter=lfs diff=lfs merge=lfs -text

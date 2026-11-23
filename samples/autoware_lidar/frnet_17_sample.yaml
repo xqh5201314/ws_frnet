@@ -1,0 +1,90 @@
+# Smoke test for the bundled 17-class ONNX with the Velodyne VLP16 sample.
+# Numeric class names are placeholders for an unknown training label order.
+trt_precision: fp16
+class_names:
+- class_00
+- class_01
+- class_02
+- class_03
+- class_04
+- class_05
+- class_06
+- class_07
+- class_08
+- class_09
+- class_10
+- class_11
+- class_12
+- class_13
+- class_14
+- class_15
+- class_16
+palette:
+- 242
+- 61
+- 61
+- 242
+- 125
+- 61
+- 242
+- 189
+- 61
+- 232
+- 242
+- 61
+- 167
+- 242
+- 61
+- 103
+- 242
+- 61
+- 61
+- 242
+- 82
+- 61
+- 242
+- 146
+- 61
+- 242
+- 210
+- 61
+- 210
+- 242
+- 61
+- 146
+- 242
+- 61
+- 82
+- 242
+- 103
+- 61
+- 242
+- 167
+- 61
+- 242
+- 232
+- 61
+- 242
+- 242
+- 61
+- 189
+- 242
+- 61
+- 125
+fov_up_deg: 15.5
+fov_down_deg: -15.5
+frustum_width: 480
+frustum_height: 32
+interpolation_width: 480
+interpolation_height: 32
+num_points:
+- 5000
+- 12626
+- 28376
+num_unique_coors:
+- 1000
+- 6000
+- 15360
+filter:
+  classes: []
+  output_format: ''

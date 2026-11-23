@@ -1,0 +1,62 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz/Grid
+      Name: Grid
+      Enabled: true
+      Alpha: 0.35
+      Cell Size: 5
+      Plane: XY
+      Plane Cell Count: 20
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz/PointCloud2
+      Name: FRNet Segmentation
+      Enabled: true
+      Topic: /lidar_frnet/output/pointcloud/visualization
+      Position Transformer: XYZ
+      Color Transformer: RGB8
+      Decay Time: 0
+      Queue Size: 2
+      Style: Points
+      Size (Pixels): 2
+      Value: true
+    - Class: rviz/PointCloud2
+      Name: nuScenes Ground Truth
+      Enabled: false
+      Topic: /nuscenes/lidarseg/ground_truth
+      Position Transformer: XYZ
+      Color Transformer: RGB8
+      Decay Time: 0
+      Queue Size: 2
+      Style: Points
+      Size (Pixels): 2
+      Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 35; 37; 41
+    Fixed Frame: LIDAR_TOP
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 55
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Current View
+      Pitch: 1.05
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 0.79

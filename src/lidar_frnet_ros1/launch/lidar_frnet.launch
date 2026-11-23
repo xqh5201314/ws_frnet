@@ -1,0 +1,39 @@
+<launch>
+  <arg name="model_path" default="" />
+  <arg name="onnx_path" default="$(arg model_path)" />
+  <arg name="config_file" default="" />
+  <arg name="input_pointcloud" default="/points_raw" />
+  <arg name="use_voxel_grid" default="true" />
+  <arg name="interpolation_stride" default="" />
+  <arg name="use_cuda_graph" default="" />
+  <arg name="build_only" default="false" />
+  <arg name="rviz" default="$(eval optenv('DISPLAY', '') != '')" />
+  <arg name="rviz_fixed_frame" default="LIDAR_TOP" />
+
+  <node if="$(eval arg('use_voxel_grid') and not arg('build_only'))"
+    pkg="nodelet" type="nodelet" name="voxel_grid" args="standalone pcl/VoxelGrid" output="screen">
+    <remap from="~input" to="$(arg input_pointcloud)" />
+    <remap from="~output" to="points_filtered" />
+    <rosparam>
+      leaf_size: 0.05
+    </rosparam>
+  </node>
+
+  <node pkg="lidar_frnet_ros1" type="lidar_frnet_ros1_node" name="lidar_frnet" output="screen">
+    <rosparam if="$(eval arg('config_file') != '')" command="load" file="$(arg config_file)" />
+    <param if="$(eval arg('onnx_path') != '')" name="onnx_path" type="str" value="$(arg onnx_path)" />
+    <param if="$(eval arg('interpolation_stride') != '')" name="interpolation_stride" type="int"
+      value="$(arg interpolation_stride)" />
+    <param if="$(eval arg('use_cuda_graph') != '')" name="use_cuda_graph" type="bool"
+      value="$(arg use_cuda_graph)" />
+    <param name="build_only" type="bool" value="$(arg build_only)" />
+    <remap from="~input/pointcloud"
+      to="$(eval 'points_filtered' if arg('use_voxel_grid') else arg('input_pointcloud'))" />
+  </node>
+
+  <node if="$(eval arg('rviz') and not arg('build_only'))"
+    pkg="rviz" type="rviz" name="lidar_frnet_rviz" output="screen"
+    args="-d '$(find lidar_frnet_ros1)/config/lidar_frnet.rviz' -f '$(arg rviz_fixed_frame)'">
+    <env name="DISABLE_ROS1_EOL_WARNINGS" value="1" />
+  </node>
+</launch>
