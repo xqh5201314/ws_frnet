@@ -116,9 +116,3 @@ python3 src/lidar_frnet_ros1/scripts/optimize_frnet_onnx.py \
 catkin_make run_tests_lidar_frnet_ros1
 catkin_test_results
 ```
-
-## 许可与数据来源
-
-ROS1 包源码使用 Apache-2.0，并保留 Autoware 及 TIER IV 的版权声明。模型和样例遵循对应的上游许可。Autoware ROS2 样例版权归 TIER IV, Inc.（2020），仓库中的 ROS1 样例由其左侧雷达数据转换而来。[源码许可证](src/lidar_frnet_ros1/LICENSE) · [Autoware 样例来源](https://github.com/autowarefoundation/autoware/blob/main/ansible/roles/demo_artifacts/tasks/main.yaml)
-
-nuScenes 样例来自 Motional 的 v1.0-mini 和 nuScenes-lidarseg mini，修改包括选取 `scene-0916`、转换为 ROS1 bag 和重映射语义类别。该样例按 CC BY-NC-SA 4.0 和 nuScenes 数据条款提供。[nuScenes 数据条款](https://www.nuscenes.org/terms-of-use) · [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
